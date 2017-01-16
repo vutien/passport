@@ -1,0 +1,38 @@
+{% extends 'layout.html'%}
+{% block content %}
+    <h1> Register </h1>
+    <ul class="list-group">
+        {% if errors %}
+            {% for error in errors %}
+                <li class="list-group-item list-group-item-danger">{{ error.msg }}</li>
+            {% endfor %}
+        {% endif %}
+    </ul>
+    <form method="post" action="/users/register" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" value="{{name}}">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" id="email" name="email" placeholder="Enter email" value="{{email}}">
+        </div>
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username" value="{{username}}">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+        </div>
+        <div class="form-group">
+            <label for="password2">Confirm Password:</label>
+            <input type="password" class="form-control" id="password2" name="password2" placeholder="Confirm password">
+        </div>
+        <div class="form-group">
+            <label>Profile image:</label>
+            <input type="file" class="form-control" name="profileImage">
+        </div>
+        <button class="btn btn-default pull-right" type="submit">Register</button>
+    </form>
+{% endblock %}
